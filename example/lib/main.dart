@@ -1,3 +1,4 @@
+import 'package:example/keys.dart';
 import 'package:flutter/material.dart';
 import 'package:map_place_picker/map_place_picker.dart';
 
@@ -106,9 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => MapScreen(),
-          ));
+          MapPicker.show(context, Keys.MAP_API_KEY, (place) {
+            print('place: ${place?.address}');
+          });
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
