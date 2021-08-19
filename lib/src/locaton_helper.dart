@@ -97,6 +97,22 @@ class MapAddress {
     // "${placemark.name.addCommaToEnd()}${placemark.subLocality.addCommaToEnd()}${placemark.locality.addCommaToEnd()}${placemark.administrativeArea.addCommaToEnd()}${placemark.postalCode.addCommaToEnd()}${placemark.country.addCommaToEnd(isWant: false)}";
     return MapAddress(latitude, longitude, _address.removeMultipleComma.trim());
   }
+
+  factory MapAddress.fromJson(Map<String, dynamic> json) {
+    return MapAddress(
+      json['latitude'],
+      json['longitude'],
+      json['address'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "latitude": this.latitude,
+      "longitude": this.longitude,
+      "address": this.address,
+    };
+  }
 }
 
 extension StringNullOrEmpty on String? {
