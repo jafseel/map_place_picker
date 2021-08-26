@@ -11,11 +11,15 @@ import 'package:provider/provider.dart';
 
 class MapPicker {
   static void show(
-      BuildContext context, String mapApiKey, PlaceSelected placeSelected) {
+      BuildContext context, String mapApiKey, PlaceSelected placeSelected,
+      {LatLng initialLocation = const LatLng(45.521563, -122.677433),
+      String? title}) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => _MapScreen(
         mapApiKey: mapApiKey,
         placeSelected: placeSelected,
+        defaultLocation: initialLocation,
+        title: title,
       ),
     ));
   }
@@ -23,7 +27,7 @@ class MapPicker {
 
 class _MapScreen extends StatelessWidget {
   final String mapApiKey;
-  final LatLng defaultLocation;
+  final String? title;
   GoogleMapController? _mapController;
   final PlaceSelected placeSelected;
 
@@ -39,7 +43,8 @@ class _MapScreen extends StatelessWidget {
       {Key? key,
       required this.mapApiKey,
       required this.placeSelected,
-      this.defaultLocation = const LatLng(45.521563, -122.677433)})
+      required this.title,
+      required LatLng defaultLocation})
       : super(key: key) {
     _position = defaultLocation;
   }
@@ -53,7 +58,7 @@ class _MapScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Maps POC App'),
+          title: Text(title ?? 'Maps Picker'),
         ),
         body: Column(
           children: [
