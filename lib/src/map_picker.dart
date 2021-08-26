@@ -12,13 +12,13 @@ import 'package:provider/provider.dart';
 class MapPicker {
   static void show(
       BuildContext context, String mapApiKey, PlaceSelected placeSelected,
-      {LatLng initialLocation = const LatLng(45.521563, -122.677433),
-      String? title}) {
+      {LatLng? initialLocation, String? title}) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => _MapScreen(
         mapApiKey: mapApiKey,
         placeSelected: placeSelected,
-        defaultLocation: initialLocation,
+        defaultLocation:
+            initialLocation ?? const LatLng(45.521563, -122.677433),
         title: title,
       ),
     ));
