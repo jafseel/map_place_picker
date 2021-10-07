@@ -109,6 +109,7 @@ class _MapScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         FloatingActionButton(
+                          heroTag: null,
                           onPressed: () async {
                             Prediction? p = await PlacesAutocomplete.show(
                               context: context,
@@ -132,6 +133,7 @@ class _MapScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         FloatingActionButton(
+                          heroTag: null,
                           onPressed: () async {
                             var position =
                                 await _locationHelper.getCurrentPosition();

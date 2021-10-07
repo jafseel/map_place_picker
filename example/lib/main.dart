@@ -106,6 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: null,
         onPressed: () {
           MapPicker.show(context, Keys.MAP_API_KEY, (place) {
             print('place: ${place?.address}');
