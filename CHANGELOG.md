@@ -6,3 +6,5 @@
 * MapAddress Json model added.
 ## [0.0.4] - 26-Aug-2021
 * Initila location option added.
+## [0.0.5] - 07-Oct-2021
+* Fab button hero tag set to null.
